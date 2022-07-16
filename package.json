@@ -1,5 +1,5 @@
 {
-  "name": "Influence-Eye-Service",
+  "name": "node-js-backend-service-template",
   "version": "1.0.0",
   "description": "Node Instance for Production server",
   "scripts": {
