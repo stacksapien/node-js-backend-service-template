@@ -1,5 +1,4 @@
-# Compliance Core Service
-A node-js backend Service Template
+# A node-js backend Service Template
 
 ### Pre-Requisite
  - NodeJS
