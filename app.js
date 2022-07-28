@@ -9,8 +9,8 @@ var helmet = require("helmet");
 
 var indexRouter = require('./routes/index');
 // var searchRoutes = require('./routes/search');
-var authRoutes = require('./routes/auth');
-var userRoutes = require("./routes/user");
+// var authRoutes = require('./routes/auth');
+// var userRoutes = require("./routes/user");
 
 const fileUpload = require('express-fileupload');
 
@@ -19,7 +19,7 @@ const fileUpload = require('express-fileupload');
 var authMiddlware = require('./services/middlewares/auth');
 
 // // Middlewares binding with routes
-userRoutes.use(authMiddlware);
+// userRoutes.use(authMiddlware);
 
 
 var app = express();
@@ -49,8 +49,8 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(cors());
 
 app.use('/', indexRouter);
-app.use('/', authRoutes);
-app.use('/user', userRoutes);
+// app.use('/', authRoutes);
+// app.use('/user', userRoutes);
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
@@ -71,18 +71,18 @@ app.use(function (err, req, res, next) {
 // app.use(passport.initialize());
 
 
-mongoose.connect(`mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}?authSource=admin`, {
-  allowDiskUse : true,
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-  useFindAndModify: false
+// mongoose.connect(`mongodb://${process.env.MONGODB_USERNAME}:${process.env.MONGODB_PASSWORD}@${process.env.MONGODB_HOST}:${process.env.MONGODB_PORT}/${process.env.MONGODB_DB}?authSource=admin`, {
+//   allowDiskUse : true,
+//   useNewUrlParser: true,
+//   useUnifiedTopology: true,
+//   useFindAndModify: false
 
-})
-  .then(() => {
-    console.log("DB Connected");
-  })
-  .catch((err) => {
-    console.log("ERROR iN DB CONNECTION", err);
-  });
+// })
+//   .then(() => {
+//     console.log("DB Connected");
+//   })
+//   .catch((err) => {
+//     console.log("ERROR iN DB CONNECTION", err);
+//   });
 
 module.exports = app;
